@@ -1,6 +1,6 @@
 from os import environ
 
-from bot.components.duel import duelComponent
+from bot.components.duel import duel_component
 from bot.entities import Mage, Warrior
 from bot.commands import Duel
 
@@ -78,7 +78,7 @@ async def duel(ctx: CommandContext, user: Member):
         magic_resistance = 0,
     )
 
-    await Duel(bot, duelComponent, w, dum).start(ctx)
+    await Duel(bot, duel_component, w, dum).start(ctx)
 
 
 

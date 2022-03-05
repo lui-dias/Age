@@ -1,0 +1,3 @@
+discord-py-interactions
+interactions-wait-for
+python-dotenv

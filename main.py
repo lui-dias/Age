@@ -11,7 +11,7 @@ from interactions import CommandContext, Option, OptionType, Member
 load_dotenv()
 
 bot        = Bot(token=environ['DISCORD_BOT_TOKEN'])
-DEV_SERVER = 946133931797913690
+DEV_SERVER = DEV_SERVER = int(environ['DEV_SERVER'])
 
 
 

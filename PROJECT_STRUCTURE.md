@@ -56,7 +56,7 @@ Folder where are the files related to all bot content
 
 ## 📜.env.example
 
-Rename to .env and add the bot token
+Rename to .env and add the bot token, dev server id
 
 ## 📜main.py
 

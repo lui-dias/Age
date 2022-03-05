@@ -78,6 +78,16 @@ class Entity:
         skills = [i[1] for i in getmembers(self) if i[0].startswith('skill__') and i[0] != 'skills']
         self.skills = skills
 
+    def skill__attack(self):
+        return Skill(
+            attack_damage = self.attack_damage,
+            cooldown      = 0,
+            magic_power   = 0,
+            name          = 'Attack',
+            attack_type   = AttackType.PHYSIC,
+            description   = 'Basic attack',
+        )
+
     @property
     def is_dead(self):
         return self.health == 0

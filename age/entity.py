@@ -67,7 +67,7 @@ class Entity:
     """ The amount of magic resistance the entity has """
     name            : str
     """ The name of the entity """
-    skills          : list = field(default=[])
+    skills          : list = field(default_factory=list)
     """ The skills the entity has """
 
 

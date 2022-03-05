@@ -11,7 +11,7 @@ class Duel:
         self.bot              = bot
 
         # Components interface
-        self.interface        = interface(bot)
+        self.interface        = interface
 
         # I use this to save the sent message and then edit it
         self.component_message: Message = None
@@ -112,7 +112,7 @@ TURN **{self.turn+1}**
                 return c_ctx.data.custom_id == 'duel__select'
 
             # Waits check to be true
-            await self.bot.wait_for_component(self.interface.layout(skills), check=check)
+            await self.bot.wait_for_component(self.interface(skills), check=check)
 
 
             # I wait for the attack function to finish

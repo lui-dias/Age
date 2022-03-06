@@ -67,26 +67,17 @@ class Entity:
     """ The amount of magic resistance the entity has """
     name            : str
     """ The name of the entity """
-    skills          : list = field(default_factory=list)
-    """ The skills the entity has """
-
 
     def __post_init__(self):
         self.max_health = self.health
 
-        # Adds all functions that start with skill__ as skill for the entity
-        skills = [i[1] for i in getmembers(self) if i[0].startswith('skill__') and i[0] != 'skills']
-        self.skills = skills
+    @property
+    def skills(self):
+        """
+        Returns all skills the entity has
+        """
 
-    def skill__attack(self):
-        return Skill(
-            attack_damage = self.attack_damage,
-            cooldown      = 0,
-            magic_power   = 0,
-            name          = 'Attack',
-            attack_type   = AttackType.PHYSIC,
-            description   = 'Basic attack',
-        )
+        return []
 
     @property
     def is_dead(self):

@@ -24,3 +24,6 @@ class Mage(Entity):
 
 class Dummy(Entity):
     ...
+
+class Slime(Entity):
+    ...

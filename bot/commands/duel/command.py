@@ -1,17 +1,14 @@
 from interactions import CommandContext, Message
 from asyncio import get_event_loop, sleep
 from age.bot import Bot
-from age.components import Grid
 from age.entity import Entity
+from .component import duel_component
 
 class Duel:
-    def __init__(self, bot: Bot, interface: Grid, player1: Entity, player2: Entity):
+    def __init__(self, bot: Bot, player1: Entity, player2: Entity):
         self.players          = [player1, player2]
         self.turn             = 0
         self.bot              = bot
-
-        # Components interface
-        self.interface        = interface
 
         # I use this to save the sent message and then edit it
         self.component_message: Message = None
@@ -78,7 +75,7 @@ class Duel:
             skills = [s().name for s in attacker.skills]
 
             # Create the interface select containing the skill names
-            interface = self.interface(skills)
+            interface = duel_component(skills)
 
             # I saved the text in a variable so I could add the padding to the text
             n1 = f'**{player1.name}:**'
@@ -112,7 +109,7 @@ TURN **{self.turn+1}**
                 return c_ctx.data.custom_id == 'duel__select'
 
             # Waits check to be true
-            await self.bot.wait_for_component(self.interface(skills), check=check)
+            await self.bot.wait_for_component(interface, check=check)
 
 
             # I wait for the attack function to finish

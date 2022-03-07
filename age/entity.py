@@ -88,12 +88,12 @@ class Entity:
         """ Calculates the damage received from an entity """
 
         return round(
-            Calculate.physic_damage(self.attack_damage, defender.armor)
+            Calculate.physic_damage(skill.attack_damage, defender.armor)
             if skill.attack_type == AttackType.PHYSIC
-            else Calculate.magical_damage(self.magic_power, defender.magic_resistance)
+            else Calculate.magical_damage(skill.attack_damage, defender.magic_resistance)
         )
 
-    async def hit(self, defender: 'Entity', skill: Skill):
+    async def hit(self, defender: 'Entity',attacker: 'Entity', skill: Skill):
         """
         Attacks an entity
 
@@ -102,4 +102,6 @@ class Entity:
 
         damage = self._calculate_damage(defender, skill)
         defender.health -= max(0, damage)
+        if skill.magic_power>0:
+            attacker.magic_power=attacker.magic_power-skill.magic_power
         return Attack(damage, self, defender, skill)

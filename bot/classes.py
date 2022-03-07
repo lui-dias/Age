@@ -40,7 +40,7 @@ class Mage(Entity):
             Skill(
                 name          = 'Fireball',
                 attack_type   = AttackType.MAGIC,
-                attack_damage = 0,
+                attack_damage = 40,
                 cooldown      = 0,
                 magic_power   = 20,
                 wait_turns    = 0,

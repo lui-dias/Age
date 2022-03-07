@@ -27,8 +27,9 @@ class Duel:
 
                 await lock.release()
             else:
-                await ctx.send(f'It is not your turn to attack, **{defender.name}**', delete_after=2.5)
-
+                m = await ctx.send(f'It is not your turn to attack, **{defender.name}**')
+                await sleep(2.5)
+                await m.delete()
 
 
         # I set the event name to the same id I set in the select in duel_component,

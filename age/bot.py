@@ -44,23 +44,6 @@ class Bot(Client):
 
         return get_command_infos
 
-
-    # Typing for wait_for_component
-    async def wait_for_component(
-        self,
-        components: Grid,
-        check     : Optional[Callable[..., Union[bool, Awaitable[bool]]]] = None,
-        timeout   : Optional[float] = None,
-    ): ...
-
-    # Typing for wait_for
-    async def wait_for(
-        self,
-        name   : str,
-        check  : Optional[Callable[..., Union[bool, Awaitable[bool]]]] = None,
-        timeout: Optional[float] = None,
-    ): ...
-
     def add_event(self, coro, name=None):
         """
         Creates a new event in the bot

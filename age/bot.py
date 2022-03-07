@@ -2,18 +2,11 @@ from re import sub
 from typing import Awaitable
 
 from interactions import *
-from interactions.ext import wait_for
 
 from age.components import Grid
 
 
 class Bot(Client):
-    def __init__(self, token, **kwargs):
-        super().__init__(token, **kwargs)
-
-        # Add wait_for and wait_for_component in bot
-        wait_for.setup(self, True)
-
     def command(self, **kwargs):
         """ Decorator for creating a command """
 

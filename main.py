@@ -1,7 +1,7 @@
 from os import environ
 
 from bot.classes import Mage, Warrior
-from bot.commands.duel import Duel
+from bot.commands.duel.command import Duel
 
 from age import Bot
 from dotenv import load_dotenv
@@ -20,12 +20,6 @@ DEV_SERVER = int(environ['DEV_SERVER'])
 @bot.event
 async def on_ready():
     print('Ready')
-
-
-
-
-
-
 
 
 
@@ -67,7 +61,7 @@ async def duel(ctx: CommandContext, user: Member):
         health           = 100,
         magic_resistance = 0,
     )
-    dum = Mage(
+    m = Mage(
         id               = int(user.user.id),
         name             = player2,
         attack_damage    = 0,
@@ -77,7 +71,7 @@ async def duel(ctx: CommandContext, user: Member):
         magic_resistance = 0,
     )
 
-    await Duel(bot, w, dum).start(ctx)
+    await Duel(bot, w, m).start(ctx)
 
 
 

@@ -1,9 +1,6 @@
 from re import sub
-from typing import Awaitable
 
-from interactions import *
-
-from age.components import Grid
+from interactions import Client
 
 
 class Bot(Client):

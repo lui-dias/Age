@@ -1,5 +1,4 @@
 from enum import Enum, auto
-from inspect import getmembers
 from dataclasses import dataclass, field
 
 

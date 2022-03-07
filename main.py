@@ -65,9 +65,9 @@ async def duel(ctx: CommandContext, user: Member):
         id               = int(user.user.id),
         name             = player2,
         attack_damage    = 0,
-        magic_power      = 0,
+        magic_power      = 100,
         armor            = 0,
-        health           = 40,
+        health           = 80,
         magic_resistance = 0,
     )
 

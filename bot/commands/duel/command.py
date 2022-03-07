@@ -17,7 +17,7 @@ class Duel:
 
         async def attack(ctx: CommandContext, options: list):
             if int(ctx.author.id) == attacker.id:
-                attack = await attacker.hit(defender, find_skill_by_name(attacker.skills, options[0]))
+                attack = await attacker.hit(defender,attacker,  find_skill_by_name(attacker.skills, options[0]))
 
                 await send_or_edit(
                     'attack_message',
@@ -36,7 +36,7 @@ class Duel:
         # so when the user selects the item in the select, the attack function is called
         self.bot.add_event(attack, f'duel__select')
 
-        player1, player2 = self.players
+        player2, player1 = self.players
 
         while not any(player.is_dead for player in self.players):
             """
@@ -54,8 +54,11 @@ class Duel:
             text = f"""
 TURN **{self.turn+1}**
 
-{f'**{player1.name}**:':30} {player1.health}/{player1.max_health}
-{f'**{player2.name}**:':30} {player2.health}/{player2.max_health}
+{f'**{player1.name}**:':30} HP: {player1.health}/{player1.max_health}
+{f'**{player1.name}**:':30} MP: {player1.magic_power}
+{f'**{player2.name}**:':30} HP: {player2.health}/{player2.max_health}
+{f'**{player2.name}**:':30} MP: {player2.magic_power}
+
 
 **Attacker**: {attacker.name}
             """

@@ -32,6 +32,8 @@ class Skill:
     """ The type of attack the skill is """
     description  : str
     """ The description of the skill """
+    wait_turns : int
+    """ The number of turns the skill needs to wait to be used """
 
 @dataclass
 class Attack:
